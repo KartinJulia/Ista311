@@ -1,8 +1,8 @@
 '''
-Name: jiatian wang
-Date: 10/25/2019
+Name: Jiatian Wang
+Date: 10/24/2019
 Class: ISTA 311
-Collaborators: Tao Ding
+Collaborators:
 '''
 
 # Imports
@@ -13,34 +13,16 @@ import numpy as np
 class InferenceSuite(Distribution):
 
     def update(self, data):
-        for key in self.d.keys():
-            self.d[key] = self.likelihood(data,hypothesis)
-        self.normalize
+        pass
 
     def map(self):
-        maxi = 0
-        result = ""
-        for key in self.d.keys():
-            if self.d[key] > maxi:
-                maxi = self.d[key]
-                result = key
-        return result
+        pass
 
     def mean(self):
-        sumi = 0
-        count = 0
-        for key in self.d.keys():
-            sumi += self.d[key]
-            count += 1
-
-        return sumi/count
+        pass
 
     def quantile(self, p):
-        lst = []
-        for key in self.d.keys():
-            lst.append(self.d[key])
-        lst.sort()
-        return lst[int(len(lst)*p)]
+        pass
 
     def likelihood(self, data, hypothesis):
         '''
@@ -76,71 +58,7 @@ class Mayor(InferenceSuite):
             else:
                 return 0.2
 
-class Diagnostic(InferenceSuite):
 
-
-    def likelihood(self,data,hypothesis):
-        disease=data
-        if hypothesis=='sick':
-            if disease:
-                return 0.9
-            else:
-                return 0.1
-        if hypothesis=='healty':
-            if disease:
-                return 0.05
-            else:
-                return 0.95
-
-class Cookie(InferenceSuite):
-    def __inti__(self,bowl1,bowl2):
-        self.d={1:0.5,2:0.5}
-        self.b1=bowl1
-        self.b2=bowl2
-
-
-    def likelihood(self,data,hypothesis):
-        type=data
-        if hypothesis==1:
-            return 1/len(self.b1)
-        if hypothesis==2:
-            return 1/len(self.b2)
-
-
-class Locomotive(InferenceSuite):
-    def __init__(self,dist):
-        self.d = dist
-
-    def likelihood(self, data, hypothesis):
-        k = data                     # This assignment isn't needed, just for clarity
-        if hypothesis >= k:
-            return 1/hypothesis
-        else:
-            return 0
-def main():
-
-    #3
-
-    d1 = {}
-    for i in range (1,1001):
-        d1[i] = 1/1000
-    d2 = {}
-    for j in range (1,501):
-        d2[j] = 1/500
-    d3 = {}
-    for k in range (1,301):
-        d3[k] = 1/300
-
-    l1 = Locomotive(d1)
-    l2 = Locomotive(d2)
-    l3 = Locomotive(d3)
-
-    l1.likelihood(187,1000)
-    l2.likelihood(169,500)
-    l3.likelihood(299,300)
-
-
-    print(l1.map())
 
 
 # Don't forget to define main()!
