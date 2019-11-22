@@ -1,13 +1,18 @@
 '''
 Name:
-Date: 
+Date:
 Class: ISTA 311
-Collaborators: 
+Collaborators:
 '''
 
 # Imports
 from distribution import Distribution
 import numpy as np
+
+import scipy as sp
+from scipy import stats
+
+
 
 # Main inference class
 class InferenceSuite(Distribution):
@@ -101,6 +106,12 @@ class Locomotive(InferenceSuite):
             return 0.0
         else:
             return 1.0 / hypothesis
+
+
+class HurricaneModel(InferenceSuite):
+    def likelihood(self, data, hypothesis):
+
+
 
 # Don't forget to define main()!
 if __name__ == '__main__':
