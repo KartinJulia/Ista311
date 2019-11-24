@@ -108,8 +108,6 @@ class Locomotive(InferenceSuite):
             return 1.0 / hypothesis
 
 
-class HurricaneModel(InferenceSuite):
-    def likelihood(self, data, hypothesis):
 
 
 
