@@ -8,4 +8,4 @@ class HurricaneModel(InferenceSuite):
         #sp.stats.poisson.rvs(rate)
 
     def predict(self):
-        return sp.stats.poisson.rvs(self.d)
+        return sp.stats.poisson.rvs(sample())
