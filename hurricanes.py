@@ -61,9 +61,7 @@ for i in range(len(data)-10):
         locals()[str(data[i,0])].update(data[i+j,2])
     temp =  max(locals()[str(data[i,0])].d.values())
     est.append(temp)
-print(est)
-
-
+#print(est)
 plt.plot(years,est)
 plt.title("line graph of λ estimates vs years")
 plt.savefig("yearλ.png")
