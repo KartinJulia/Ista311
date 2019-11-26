@@ -12,5 +12,6 @@ class HurricaneModel(InferenceSuite):
         return sp.stats.poisson.rvs(self.sample())
 
 data = sp.loadtxt('hurricanes.csv', delimiter = ',', skiprows = 1)
-#print(data)
-i1 = HurricaneModel(data)
+print(data[16:20])
+#i1974 = HurricaneModel(data)
+#i2015 = HurricaneModel(data)
