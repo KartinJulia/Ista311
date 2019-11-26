@@ -50,3 +50,20 @@ plt.title("Predicted hurricanes, total and major")
 plt.legend(['Total hurricanes 1965-1974','Total hurricanes 2006-2015', 'Major hurricanes 1965-1974','Major hurricanes 2006-2015'])
 plt.savefig("hist.png")
 plt.close('all')
+
+
+est=[]
+years=[i for i in range(1860,2017)]
+
+for i in range(len(data)-10):
+    locals()[str(data[i,0])]=HurricaneModel(sp.linspace(0, 25, 251))
+    for j in range(10):
+        locals()[str(data[i,0])].update(data[i+j,2])
+    temp =  max(locals()[str(data[i,0])].d.values())
+    est.append(temp)
+print(est)
+
+
+plt.plot(years,est)
+plt.title("line graph of λ estimates vs years")
+plt.savefig("yearλ.png")
